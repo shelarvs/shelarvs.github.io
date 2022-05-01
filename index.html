@@ -28,7 +28,7 @@
 				</div>
 				<!-- <h5 class="user-name">User</h5> -->
 				<!-- <h6 class="user-email">Profile</h6> -->
-				<p class="btn btn-danger">Blocked</p>
+				<p class="btn btn-info" id="ac_status">Loading..!!</p>
 			</div>
 			<div class="about">
 				
@@ -92,8 +92,6 @@
 
 	
 </div>
-
-
 
 </div>
 
@@ -247,10 +245,10 @@ const extern_lab = new web3.eth.Contract(ExternAbi, ExternAddress);
 
 	const owner = await extern_lab.methods.owner().call();
 
-	if(_address == owner)
-	{
-		window.location.href = "./admin.html";
-	}
+	// if(_address == owner)
+	// {
+	// 	window.location.href = "./admin.html";
+	// }
 
 	const tokenNameData = await extern_lab.methods.name().call();
 	const tokenSymbolData = await extern_lab.methods.symbol().call();
@@ -270,6 +268,28 @@ tokenDetails();
 
 //-------------------Block-Unblock----------------
 
+var _address = getCookie("address");
+const extern_lab = new web3.eth.Contract(ExternAbi, ExternAddress);
+extern_lab.methods.getUserStatusData(_address).call({
+                from: _address,
+             
+            })
+            .then(
+                (data1)=>{
+                   if(data1[1]==false)
+				   {
+					document.getElementById("ac_status").innerHTML = "Available";
+					document.getElementById("ac_status").className = "btn btn-success";
+				   }
+				   else{
+					document.getElementById("ac_status").innerHTML = "btn btn-danger";
+				   }
+					
+
+                    
+            }
+            );	
+                
 
 
 </script>

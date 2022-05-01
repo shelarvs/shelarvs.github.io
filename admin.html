@@ -11,9 +11,12 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="./js/web3/dist/web3.min.js"></script>
 	<script src="./js/web3-config.js"></script>
+    <script src="./artifacts/externAbi.js"></script>
 	<script src="./js/transfer.js"></script>
 	<script src="./js/block_unblock.js"></script>
-	<script src="./artifacts/externAbi.js"></script>
+    <script src="./js/user_data.js"></script>
+	
+    
 </head>
 <body>
 <div class="container">
@@ -115,7 +118,7 @@
 			<div class="col-xl-12 col-lg-6 col-md-6 col-sm-6 col-12">
 				<center>
 				<div class="form-group" >
-					<button type="button"  onclick="block_user()" id="submit" name="submit" class="btn btn-success">UnBlock</button>
+					<button type="button"  onclick="un_block_user()" id="submit" name="submit" class="btn btn-success">UnBlock</button>
 				</div>
 				<div class="form-group" >
 					<button type="button"  onclick="block_user()" id="submit" name="submit" class="btn btn-danger">Block</button>
@@ -136,10 +139,15 @@
 </div>
 
 
-
+<div id ="userList">
+    
+</div>
 </div
 
+
+
 </div>
+
 
 
 
@@ -304,6 +312,7 @@ tokenDetails();
 
 
 //-------------------Block-Unblock----------------
+
 
 
 

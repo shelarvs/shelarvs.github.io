@@ -21,10 +21,14 @@ console.log(weiValue);
         .on("receipt",
             function (receipt) {
                 console.log(receipt);
+                alert(receipt);
+                window.location.reload();
             })
             .on("error",
                     function (error, receipt) {
                         console.log(error);
+                        alert("Error Occured");
+                        window.location.reload();
                     }
             ).then(console.log("Transaction-Capture"));
 

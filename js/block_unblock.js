@@ -17,10 +17,14 @@ async function block_user(){
         .on("receipt",
             function (receipt) {
                 console.log(receipt);
+                alert(receipt);
+                window.location.reload();
             })
             .on("error",
                     function (error, receipt) {
                         console.log(error);
+                        alert("Error Occured");
+                        window.location.reload();
                     }
             )
             .then(console.log("Transaction-Capture"));
@@ -47,12 +51,18 @@ async function un_block_user(){
         .on("receipt",
             function (receipt) {
                 console.log(receipt);
+                alert(receipt);
+                window.location.reload();
             })
             .on("error",
                     function (error, receipt) {
                         console.log(error);
+                        alert("Error Occured");
+                        window.location.reload();
                     }
             )
             .then(console.log("Transaction-Capture"));
 
 }
+
+
