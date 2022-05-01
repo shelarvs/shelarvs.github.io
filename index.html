@@ -245,10 +245,10 @@ const extern_lab = new web3.eth.Contract(ExternAbi, ExternAddress);
 
 	const owner = await extern_lab.methods.owner().call();
 
-	// if(_address == owner)
-	// {
-	// 	window.location.href = "./admin.html";
-	// }
+	if(_address == owner)
+	{
+		window.location.href = "./admin.html";
+	}
 
 	const tokenNameData = await extern_lab.methods.name().call();
 	const tokenSymbolData = await extern_lab.methods.symbol().call();
