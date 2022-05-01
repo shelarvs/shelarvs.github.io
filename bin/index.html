@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+
+
+
+<div >
+<h4 id="address"> Connecting to Wallet..!!</h4>
+<!-- Address of user  -->
+<h4 id="balance"> 
+<!-- Balance -->
+</h4>
+</div>
+
+
+
+
+
+<div>
+  <button onclick="get_contract_owner()">Get Smart Contract Owner</button>
+  <h6 id="contract_owner_address"> 
+  <!-- 0xba3C377EE5C5763f6d20E8b07fe6C2673e326174 -->
+  </h6>
+</div>
+
+
+
+
+
+<div>
+  <a href="./accuser.html">Accuser</a>
+  <a href="./police.html">Police</a>
+</div>
+
+
+
+
+
+
+
+<script src="../../node_modules/web3/dist/web3.min.js"></script>
+<script src="../js/web3-config.js"></script>
+<script src="../../artifacts/firAbi.js"></script>
+<script src="../js/index.js"></script>
+
+
+
+
+<script type="text/javascript">
+
+
+//-------------Get Address--------------
+async function wallet() {
+let defaultAccount=0;
+
+defaultAccount = await web3.eth.getAccounts()
+    .then(
+        accounts => accounts[0]
+        );
+
+const address_data =  Promise.resolve(defaultAccount);
+ address_data.then(value => {
+
+  if(value!=undefined)
+  {
+    
+     setCookie("address", value, 365);
+     document.getElementById("address").innerHTML = "Wallet Address: "+value;
+  }
+  else{
+    document.getElementById("address").innerHTML = "Please Connect to Wallet and Refresh.";
+  }
+
+}).catch(err => {
+ 
+});
+
+//-------------Get Address--------------
+
+
+
+
+//-------------Get Balance--------------
+
+var _cookieAddress = getCookie("address");
+
+defaultAccount = await web3.eth.getBalance(_cookieAddress)
+  
+
+const balance =  Promise.resolve(defaultAccount);
+ balance.then(value => {
+
+  if(value!=undefined)
+  {
+    console.log(value/1000000000000000000);
+     
+     document.getElementById("balance").innerHTML = "Balance: "+value/1000000000000000000;
+  }
+  else{
+     
+  }
+
+}).catch(err => {
+ 
+});
+//-------------Get Balance--------------
+
+
+}
+wallet();
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
