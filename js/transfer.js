@@ -21,7 +21,7 @@ console.log(weiValue);
         .on("receipt",
             function (receipt) {
                 console.log(receipt);
-                alert(receipt);
+                alert("Transaction Successful");
                 window.location.reload();
             })
             .on("error",

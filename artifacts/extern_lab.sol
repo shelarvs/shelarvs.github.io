@@ -44,7 +44,7 @@ contract address_management is ERC20{
         function blockUser(address _address) checkOwner public
         {
             require(user_data[_address].status == false,"User Already Blocked");
-            require(accounts[_address] != _address,"User Already Blocked");
+            require(accounts[_address] != _address,"User Already Blocked Accs");
             user_data[_address].user_address = _address;
             user_data[_address].status = true;
             accounts[_address] = _address;

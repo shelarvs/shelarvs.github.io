@@ -17,7 +17,7 @@ async function block_user(){
         .on("receipt",
             function (receipt) {
                 console.log(receipt);
-                alert(receipt);
+                alert("Transaction Successful");
                 window.location.reload();
             })
             .on("error",
@@ -51,7 +51,7 @@ async function un_block_user(){
         .on("receipt",
             function (receipt) {
                 console.log(receipt);
-                alert(receipt);
+                alert("Transaction Successful");
                 window.location.reload();
             })
             .on("error",
